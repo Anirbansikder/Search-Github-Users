@@ -1,7 +1,32 @@
-import React from 'react';
+// STEP 1 - Include Dependencies
+// Include react
+import React from "react";
+import ReactFC from "react-fusioncharts";
+import FusionCharts from "fusioncharts";
+import Chart from "fusioncharts/fusioncharts.charts";
+import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 
-const Bar3D = () => {
-  return <div>chart</div>;
-};
+ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
 
-export default Bar3D;
+const ChartComponent = ({data}) => {
+  const chartConfigs = {
+    type: "bar3d", // The chart type
+    width: "100%", // Width of the chart
+    height: "400", // Height of the chart
+    dataFormat: "json", // Data type
+    dataSource: {
+      chart: {
+        caption : "Most Forked",
+        yAxisName : "Forks",
+        xAxisName : "Repos",
+        xAxisNameFontSize : "16px",
+        yAxisNameFontSize : "16px"
+      },
+      data,
+    }
+  };
+  return (<ReactFC {...chartConfigs} />);
+}
+
+export default ChartComponent;
+
