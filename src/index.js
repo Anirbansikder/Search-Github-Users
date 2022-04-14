@@ -9,7 +9,7 @@ require('dotenv').config()
 
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider domain={process.env.DOMAIN} clientId={process.env.ID} redirectUri={window.location.origin} cacheLocation="localstorage">
+    <Auth0Provider domain="dev-e6tydyn7.us.auth0.com" clientId="kItaxZYMzQKJNMdYlfUxrL5c6UT7J9Nj" redirectUri={window.location.origin} cacheLocation="localstorage">
       <GithubProvider>
         <App />
       </GithubProvider>
